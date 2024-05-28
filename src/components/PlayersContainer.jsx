@@ -18,7 +18,7 @@ function PlayersContainer({ throwResult, players, setWinningPlayer }) {
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <main style={{ display: "flex", flexDirection: "row" }}>
         {Array.from({ length: players }, (_, k) => (
           <div key={k}>
             <Player
@@ -29,7 +29,7 @@ function PlayersContainer({ throwResult, players, setWinningPlayer }) {
             />
           </div>
         ))}
-      </div>
+      </main>
     </>
   );
 }

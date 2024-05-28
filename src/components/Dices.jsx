@@ -1,4 +1,5 @@
 import { DICES } from "../assets/Game_core";
+import "../style/dices.css"
 
 function Dices({ throwResult, setThrowResult }) {
   function createDices() {
@@ -37,17 +38,15 @@ function Dices({ throwResult, setThrowResult }) {
   };
 
   return (
-    <section>
-      <button onClick={rollTheDices}>Roll the dices</button>
-      <br />
-      Result:
-      <div>
+    <section className="dices_container">
+      <div className="dices_container__dices">
         {throwResult.map((dice) =>
           DICES.fields.map(
             ({ id, icon: Icon }) => id == dice && <Icon size={100} key={id} />
           )
         )}
       </div>
+      <button className="dices_container__btn" onClick={rollTheDices}>Roll the dices</button>
     </section>
   );
 }

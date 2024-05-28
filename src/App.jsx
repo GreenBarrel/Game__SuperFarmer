@@ -2,20 +2,33 @@ import { useState } from "react";
 import GameContainer from "./components/GameContainer";
 
 function App() {
-  const [players, setPlayers] = useState(2);
+  const minPlayers = 2
+  const maxPlayers = 4
+
+  const [players, setPlayers] = useState(minPlayers);
   const [start, setStart] = useState(false);
+
+  function playersValidation() {
+    let res = false
+
+    players >= minPlayers && players <= maxPlayers
+    ? res = true
+    : alert(`Select the number of players from ${minPlayers} to ${maxPlayers}`)
+
+    return res
+  }
 
   return (
     <>
+      <h1>SuperFarmer</h1>
       {!start && (
         <div>
-          <h1>SuperFarmer</h1>
           <fieldset>
             <legend>Players</legend>
             <input
               type="number"
-              min={2}
-              max={4}
+              min={minPlayers}
+              max={maxPlayers}
               placeholder="Players"
               value={players}
               onInput={(e) => {
@@ -24,7 +37,7 @@ function App() {
             />
             <button
               onClick={() => {
-                setStart(true);
+                playersValidation() && setStart(true);
               }}
             >
               Let's PLAY

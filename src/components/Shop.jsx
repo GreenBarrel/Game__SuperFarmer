@@ -56,7 +56,7 @@ function BuyItem(props) {
     });
   }
 
-  return <div>{canBuy() && <button onClick={buy}>BUY</button>}</div>;
+  return <div style={{position: "absolute"}} >{canBuy() && <button style={{position: "relative", top: "-55px", borderRadius:"50%"}} onClick={buy}>+</button>}</div>;
 }
 
 export default BuyItem;

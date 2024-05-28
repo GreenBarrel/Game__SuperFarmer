@@ -22,7 +22,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
   }, [myFlock]);
 
   return (
-    <div>
+    <>
       <h3 style={isActivePlayer() ? { color: "black" } : { color: "silver" }}>
         Player {playerId}
       </h3>
@@ -40,7 +40,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
         isActivePlayer={isActivePlayer()}
         source={gatekeepers}
       />
-    </div>
+    </>
   );
 }
 
