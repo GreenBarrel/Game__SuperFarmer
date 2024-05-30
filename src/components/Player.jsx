@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Flock from "./Flock";
 import { INIT_STATE } from "../assets/Game_core";
 import { wonTheGame, updateFlock } from "../assets/Player_events";
+import "../style/players.css";
 
 function Player({ throwResult, turn, playerId, setWinningPlayer }) {
   const [myFlock, setMyFlock] = useState(INIT_STATE);
@@ -10,6 +11,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
   const gatekeepers = myFlock.gatekeepers;
 
   function isActivePlayer() {
+    turn == 0 ? (turn = 1) : turn;
     return turn === playerId;
   }
 
@@ -22,7 +24,11 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
   }, [myFlock]);
 
   return (
-    <>
+    <section
+      className={
+        "players_container__player" + " " + (isActivePlayer() ? "active" : "")
+      }
+    >
       <h3 style={isActivePlayer() ? { color: "black" } : { color: "silver" }}>
         Player {playerId}
       </h3>
@@ -33,14 +39,13 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
         isActivePlayer={isActivePlayer()}
         source={flock}
       />
-      <br />
       <Flock
         myFlock={myFlock}
         setMyFlock={setMyFlock}
         isActivePlayer={isActivePlayer()}
         source={gatekeepers}
       />
-    </>
+    </section>
   );
 }
 

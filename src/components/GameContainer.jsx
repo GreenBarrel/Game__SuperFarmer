@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Dices from "./Dices";
 import PlayersContainer from "./PlayersContainer";
+import Dices from "./Dices";
+import BuyRules from "./BuyRules";
 import GameOver from "./GameOver";
-import "../style/game_container.css"
+import "../style/game_container.css";
 
 function GameContainer({ players, setStart }) {
   const [throwResult, setThrowResult] = useState([]);
@@ -18,7 +19,8 @@ function GameContainer({ players, setStart }) {
         players={players}
         setWinningPlayer={setWinningPlayer}
       />
-      <Dices throwResult={throwResult} setThrowResult={setThrowResult} />{" "}
+      <Dices throwResult={throwResult} setThrowResult={setThrowResult} />
+      <BuyRules />
     </div>
   );
 }

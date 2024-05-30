@@ -1,5 +1,6 @@
 import { useRef, useMemo, useState } from "react";
 import Player from "./Player";
+import "../style/players.css";
 
 function PlayersContainer({ throwResult, players, setWinningPlayer }) {
   const [playerTurn, setPlayerTurn] = useState(0);
@@ -18,16 +19,14 @@ function PlayersContainer({ throwResult, players, setWinningPlayer }) {
 
   return (
     <>
-      <main style={{ display: "flex", flexDirection: "row" }}>
+      <main className="players_container">
         {Array.from({ length: players }, (_, k) => (
-          <div key={k}>
-            <Player
-              throwResult={throwResult}
-              playerId={k + 1}
-              turn={playerTurn}
-              setWinningPlayer={setWinningPlayer}
-            />
-          </div>
+          <Player
+            throwResult={throwResult}
+            playerId={k + 1}
+            turn={playerTurn}
+            setWinningPlayer={setWinningPlayer}
+          />
         ))}
       </main>
     </>
