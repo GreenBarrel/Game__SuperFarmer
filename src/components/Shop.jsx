@@ -56,7 +56,13 @@ function BuyItem(props) {
     });
   }
 
-  return <div style={{position: "absolute"}} >{canBuy() && <button style={{position: "relative", top: "-55px", borderRadius:"50%"}} onClick={buy}>+</button>}</div>;
+  return (
+    canBuy() && (
+      <button className="flock__buy_item_btn" onClick={buy}>
+        +
+      </button>
+    )
+  );
 }
 
 export default BuyItem;

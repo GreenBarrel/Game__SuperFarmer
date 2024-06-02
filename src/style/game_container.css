@@ -1,29 +1,10 @@
-body {
-  background: linear-gradient(
-    rgba(130, 93, 14, 0.782),
-    rgba(255, 255, 255, 0.7)
-  );
-  background-repeat: no-repeat;
-  height: 95vh;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .game_container {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1.5fr 1.5fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  width: 80vw;
 }
 
-.buy_rules {
-  display: grid;
-  grid-area: 3 / 2 / 5 / 3;
+.game_container__rules {
+  grid-column-start: 2;
+  align-self: center;
+  justify-self: center;
 }

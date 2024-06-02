@@ -29,9 +29,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
         "players_container__player" + " " + (isActivePlayer() ? "active" : "")
       }
     >
-      <h3 style={isActivePlayer() ? { color: "black" } : { color: "silver" }}>
-        Player {playerId}
-      </h3>
+      <h3>Player {playerId}</h3>
 
       <Flock
         myFlock={myFlock}
