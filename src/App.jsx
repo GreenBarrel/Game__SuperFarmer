@@ -23,28 +23,26 @@ function App() {
   return (
     <>
       {!start && (
-        <div>
-          <fieldset>
-            <legend>Players</legend>
-            <input
-              type="number"
-              min={minPlayers}
-              max={maxPlayers}
-              placeholder="Players"
-              value={players}
-              onInput={(e) => {
-                setPlayers(e.target.value);
-              }}
-            />
-            <button
-              onClick={() => {
-                playersValidation() && setStart(true);
-              }}
-            >
-              Let's PLAY
-            </button>
-          </fieldset>
-        </div>
+        <fieldset className="start_container">
+          <legend>Players</legend>
+          <input
+            type="number"
+            min={minPlayers}
+            max={maxPlayers}
+            placeholder="Players"
+            value={players}
+            onInput={(e) => {
+              setPlayers(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              playersValidation() && setStart(true);
+            }}
+          >
+            Let's PLAY
+          </button>
+        </fieldset>
       )}
 
       {start && <GameContainer players={players} setStart={setStart} />}

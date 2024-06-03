@@ -26,7 +26,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
   return (
     <section
       className={
-        "players_container__player" + " " + (isActivePlayer() ? "active" : "")
+        "players_container__player" + " " + (isActivePlayer() ? "--active" : "")
       }
     >
       <h3>Player {playerId}</h3>

@@ -8,25 +8,25 @@ function Flock({ myFlock, setMyFlock, isActivePlayer, source }) {
   return (
     <div className={source.length > 2 ? "flock" : "gatekeepers"}>
       {source.map(({ id, stock, img }, index) => (
-        <div key={index} className="item">
+        <div key={index} className="flock__items">
           {typeof stock == "number" ? (
             Array.from({ length: itemLength(index) }, (_, k) => (
               <img
                 src={img}
                 width={75}
-                className={stock > k ? "item__active" : "item__unactive"}
+                className={"flock__item" + (stock > k ? " " + "--active" : "")}
               />
             ))
           ) : (
             <img
               src={img}
               width={50}
-              className={stock ? "item__active" : "item__unactive"}
+              className={"gatekeeper__item" + (stock ? " " + "--active" : "")}
             />
           )}
 
           {stock > itemLength(index) && (
-            <span className="flock__extra_item">{`+${
+            <span className="flock__extra_items">{`+${
               stock - itemLength(index)
             }`}</span>
           )}

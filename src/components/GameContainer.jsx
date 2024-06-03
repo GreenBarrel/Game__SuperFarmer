@@ -22,7 +22,7 @@ function GameContainer({ players, setStart }) {
         setWinningPlayer={setWinningPlayer}
       />
       <Dices throwResult={throwResult} setThrowResult={setThrowResult} />
-      <BuyRules />
+      {/* <BuyRules /> */}
     </div>
   );
 }
