@@ -1,7 +1,7 @@
 import { DICES } from "../assets/Game_core";
 import "../style/dices.css";
 
-function Dices({ throwResult, setThrowResult }) {
+function Dices({ throwResult, setThrowResult, winningPlayer }) {
   function createDices() {
     const commonFields = DICES.dices.common;
     const variousFields = DICES.dices.various;
@@ -26,15 +26,17 @@ function Dices({ throwResult, setThrowResult }) {
   }
 
   const rollTheDices = () => {
-    const result = [];
-    const dices = createDices();
+    if (!winningPlayer) {
+      const result = [];
+      const dices = createDices();
 
-    for (let i = 0; i < dices.length; i++) {
-      const random = Math.floor(Math.random() * dices[i].length);
-      result.push(dices[i][random]);
+      for (let i = 0; i < dices.length; i++) {
+        const random = Math.floor(Math.random() * dices[i].length);
+        result.push(dices[i][random]);
+      }
+
+      setThrowResult(result);
     }
-
-    setThrowResult(result);
   };
 
   return (
