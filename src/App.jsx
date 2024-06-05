@@ -25,17 +25,40 @@ function App() {
       {!start && (
         <fieldset className="start_container">
           <legend>Players</legend>
-          <input
-            type="number"
-            min={minPlayers}
-            max={maxPlayers}
-            placeholder="Players"
-            value={players}
-            onInput={(e) => {
-              setPlayers(e.target.value);
-            }}
-          />
+          <span className="num_of_players">
+            <button
+              className={
+                "decreaseNum" +
+                (players > minPlayers ? null : " " + "--unactive")
+              }
+              onClick={() => {
+                inputEl.stepDown(), setPlayers(inputEl.value);
+              }}
+            >
+              -
+            </button>
+            <input
+              id="inputEl"
+              type="number"
+              min={minPlayers}
+              max={maxPlayers}
+              placeholder="Players"
+              defaultValue={players}
+            />
+            <button
+              className={
+                "increaseNum" +
+                (players < maxPlayers ? null : " " + "--unactive")
+              }
+              onClick={() => {
+                inputEl.stepUp(), setPlayers(inputEl.value);
+              }}
+            >
+              +
+            </button>
+          </span>
           <button
+            className="start_game_btn"
             onClick={() => {
               playersValidation() && setStart(true);
             }}
