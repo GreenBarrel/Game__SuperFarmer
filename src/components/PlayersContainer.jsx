@@ -22,6 +22,7 @@ function PlayersContainer({ throwResult, players, setWinningPlayer }) {
       <main className="players_container">
         {Array.from({ length: players }, (_, k) => (
           <Player
+            key={k}
             throwResult={throwResult}
             playerId={k + 1}
             turn={playerTurn}

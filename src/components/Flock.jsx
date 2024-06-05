@@ -12,6 +12,7 @@ function Flock({ myFlock, setMyFlock, isActivePlayer, source }) {
           {typeof stock == "number" ? (
             Array.from({ length: itemLength(index) }, (_, k) => (
               <img
+                key={k}
                 src={img}
                 width={75}
                 className={"flock__item" + (stock > k ? " " + "--active" : "")}

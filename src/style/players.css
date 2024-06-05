@@ -2,6 +2,7 @@
   grid-area: 1 / 1 / 4 / 2;
   display: grid;
   grid-template-columns: 1fr 3fr;
+  grid-template-rows: min-content min-content min-content;
   align-items: start;
   justify-items: center;
 }
@@ -87,7 +88,7 @@ h3 {
 .flock__buy_item_btn {
   position: absolute;
   top: 0;
-  right: 3px;
+  left: 3px;
   width: 75px;
   height: 75px;
   border-radius: 50%;
