@@ -1,6 +1,20 @@
+import { MdOutlinePublishedWithChanges } from "react-icons/md";
 import { SHOP } from "../assets/Game_core";
 
 function BuyItem(props) {
+  const START_POSITION = 3;
+  const BUY_BTN_JUMP_SIZE = 81;
+
+  function buyBtnPosition() {
+    let len = 0;
+    const maxLen = 5 - props.index;
+
+    if (typeof props.stock == "number" && canBuy())
+      props.stock < maxLen ? (len = props.stock) : (len = maxLen - 1);
+
+    return START_POSITION + len * BUY_BTN_JUMP_SIZE;
+  }
+
   function canBuy() {
     const flock = props.myFlock.flock;
     let state = false;
@@ -58,8 +72,12 @@ function BuyItem(props) {
 
   return (
     canBuy() && (
-      <button className="flock__buy_item_btn" onClick={buy}>
-        +
+      <button
+        className="flock__buy_item_btn"
+        style={{ left: `${buyBtnPosition()}px` }}
+        onClick={buy}
+      >
+        <MdOutlinePublishedWithChanges />
       </button>
     )
   );

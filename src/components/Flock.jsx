@@ -38,6 +38,7 @@ function Flock({ myFlock, setMyFlock, isActivePlayer, source }) {
               stock={stock}
               myFlock={myFlock}
               setMyFlock={setMyFlock}
+              index={index}
             />
           )}
         </div>
