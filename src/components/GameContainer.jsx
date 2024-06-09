@@ -13,9 +13,6 @@ function GameContainer({ players, setStart }) {
     <div className="game_container">
       <div className="game_container__rules">RULES</div>
 
-      {winningPlayer && (
-        <GameOver winningPlayer={winningPlayer} setStart={setStart} />
-      )}
       <PlayersContainer
         throwResult={throwResult}
         players={players}
@@ -27,6 +24,10 @@ function GameContainer({ players, setStart }) {
         winningPlayer={winningPlayer}
       />
       {/* <BuyRules /> */}
+
+      {winningPlayer && (
+        <GameOver winningPlayer={winningPlayer} setStart={setStart} />
+      )}
     </div>
   );
 }

@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 50px 10%;
-  background: #0f6052b5;
+  background-image: radial-gradient(#976b39, #000000);
 }
 
 #root {
