@@ -1,7 +1,7 @@
 import { useState } from "react";
+import gameRules from "../files/SUPERFARMER_DELUX.pdf";
 import PlayersContainer from "./PlayersContainer";
 import Dices from "./Dices";
-import BuyRules from "./BuyRules";
 import GameOver from "./GameOver";
 import "../style/game_container.css";
 
@@ -11,7 +11,9 @@ function GameContainer({ players, setStart }) {
 
   return (
     <div className="game_container">
-      <div className="game_container__rules">RULES</div>
+      <a className="game_container__rules" href={gameRules} target="_blank">
+        RULES (PL)
+      </a>
 
       <PlayersContainer
         throwResult={throwResult}
@@ -23,7 +25,6 @@ function GameContainer({ players, setStart }) {
         setThrowResult={setThrowResult}
         winningPlayer={winningPlayer}
       />
-      {/* <BuyRules /> */}
 
       {winningPlayer && (
         <GameOver winningPlayer={winningPlayer} setStart={setStart} />
