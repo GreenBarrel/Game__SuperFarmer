@@ -1,7 +1,14 @@
 import { DICES } from "../assets/Game_core";
+import { GiRollingDiceCup } from "react-icons/gi";
 import "../style/dices.css";
 
-function Dices({ throwResult, setThrowResult, winningPlayer }) {
+function Dices({
+  throwResult,
+  setThrowResult,
+  winningPlayer,
+  nextRound,
+  setNextRound,
+}) {
   function createDices() {
     const commonFields = DICES.dices.common;
     const variousFields = DICES.dices.various;
@@ -36,21 +43,28 @@ function Dices({ throwResult, setThrowResult, winningPlayer }) {
       }
 
       setThrowResult(result);
+      setNextRound(true);
     }
   };
 
   return (
     <>
       <section className="dices_container">
-        {throwResult.map((dice) =>
-          DICES.fields.map(
-            ({ id, icon: Icon }) => id == dice && <Icon key={id} />
+        {!nextRound ? (
+          <GiRollingDiceCup className="dice_cup" />
+        ) : (
+          throwResult.map((dice) =>
+            DICES.fields.map(
+              ({ id, icon: Icon }) => id == dice && <Icon key={id} />
+            )
           )
         )}
       </section>
-      <button className="dices_btn" onClick={rollTheDices}>
-        Roll the dices
-      </button>
+      {!nextRound && (
+        <button className="dices_btn" onClick={rollTheDices}>
+          Roll the dices
+        </button>
+      )}
     </>
   );
 }

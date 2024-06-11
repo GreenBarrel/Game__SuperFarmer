@@ -1,6 +1,6 @@
 import BuyItem from "./Shop";
 
-function Flock({ myFlock, setMyFlock, isActivePlayer, source }) {
+function Flock({ myFlock, setMyFlock, isActivePlayer, source, nextRound }) {
   function itemLength(index) {
     return 5 - index;
   }
@@ -32,7 +32,7 @@ function Flock({ myFlock, setMyFlock, isActivePlayer, source }) {
             }`}</span>
           )}
 
-          {isActivePlayer && stock !== true && (
+          {isActivePlayer && stock !== true && !nextRound && (
             <BuyItem
               id={id}
               stock={stock}

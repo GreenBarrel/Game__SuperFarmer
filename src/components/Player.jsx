@@ -4,7 +4,7 @@ import { INIT_STATE } from "../assets/Game_core";
 import { wonTheGame, updateFlock } from "../assets/Player_events";
 import "../style/players.css";
 
-function Player({ throwResult, turn, playerId, setWinningPlayer }) {
+function Player({ throwResult, turn, playerId, setWinningPlayer, nextRound }) {
   const [myFlock, setMyFlock] = useState(INIT_STATE);
 
   const flock = myFlock.flock;
@@ -36,12 +36,14 @@ function Player({ throwResult, turn, playerId, setWinningPlayer }) {
         setMyFlock={setMyFlock}
         isActivePlayer={isActivePlayer()}
         source={flock}
+        nextRound={nextRound}
       />
       <Flock
         myFlock={myFlock}
         setMyFlock={setMyFlock}
         isActivePlayer={isActivePlayer()}
         source={gatekeepers}
+        nextRound={nextRound}
       />
     </section>
   );

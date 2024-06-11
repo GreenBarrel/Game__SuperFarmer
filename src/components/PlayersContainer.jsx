@@ -1,21 +1,22 @@
-import { useRef, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Player from "./Player";
 import "../style/players.css";
 
-function PlayersContainer({ throwResult, players, setWinningPlayer }) {
+function PlayersContainer({
+  throwResult,
+  players,
+  setWinningPlayer,
+  nextRound,
+}) {
   const [playerTurn, setPlayerTurn] = useState(0);
 
-  let startGame = useRef(false);
-
-  useMemo(() => {
-    if (startGame.current) {
+  useEffect(() => {
+    if (!nextRound) {
       playerTurn < players
         ? setPlayerTurn((prev) => prev + 1)
         : setPlayerTurn(1);
-    } else {
-      startGame.current = true;
     }
-  }, [throwResult]);
+  }, [nextRound]);
 
   return (
     <>
@@ -27,6 +28,7 @@ function PlayersContainer({ throwResult, players, setWinningPlayer }) {
             playerId={k + 1}
             turn={playerTurn}
             setWinningPlayer={setWinningPlayer}
+            nextRound={nextRound}
           />
         ))}
       </main>
