@@ -8,14 +8,24 @@
 .dices_container > svg {
   width: 100px;
   height: 100px;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 5px white;
   margin: 20px 0;
   padding: 10%;
   border-radius: 5px;
   color: white;
+  opacity: 1;
+  animation: 0.15s ease roll;
 }
 
-.dices_btn {
+.dices_container > .dice_cup {
+  scale: 2.5;
+  color: rgba(255, 255, 255, 0.23);
+  box-shadow: none;
+}
+
+.dices_btn,
+.next_player_btn {
+  grid-area: 3 / 1 / 4 / 3;
   border: solid 1px white;
   border-radius: 5px;
   font-size: 1.2em;
@@ -23,4 +33,21 @@
   color: white;
   background-color: rgb(29, 117, 161);
   cursor: pointer;
+  margin: 10px;
+}
+
+.next_player_btn {
+  background-color: white;
+  color: rgb(29, 117, 161);
+}
+
+@keyframes roll {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
 }
