@@ -53,11 +53,11 @@ h3 {
 .flock__items > img {
   border-radius: 50%;
   margin: 0 3px;
-  transition: 1s;
 }
 
-.flock > .flock__items > img:first-of-type {
-  box-shadow: 0px 0px 3px 5px rgba(210, 234, 26, 0.807);
+.flock__items > .--active,
+.flock__extra_items {
+  animation: 1.5s new-item;
 }
 
 .flock__item:not(.--active):first-of-type {
@@ -67,6 +67,7 @@ h3 {
 .flock__item:not(.--active),
 .gatekeeper__item:not(.--active) {
   filter: grayscale();
+  animation: 1.5s lost-item;
 }
 
 .gatekeepers {
@@ -112,4 +113,37 @@ h3 {
   font-size: 2em;
   width: 50px;
   height: 50px;
+}
+
+@keyframes new-item {
+  0% {
+    box-shadow: 0 0 30px transparent;
+    outline: 10px transparent;
+  }
+  50% {
+    box-shadow: 0px 0px 3px 5px rgba(210, 234, 26, 0.807);
+    outline: 1px rgba(210, 234, 26, 0.807);
+  }
+  100% {
+    box-shadow: 0 0 30px transparent;
+    outline: 5px transparent;
+  }
+}
+
+@keyframes lost-item {
+  0% {
+    box-shadow: 0 0 30px transparent;
+    outline: 10px transparent;
+    filter: none;
+  }
+  50% {
+    box-shadow: 0px 0px 3px 5px rgba(234, 26, 26, 0.807);
+    outline: 1px rgba(234, 26, 26, 0.807);
+    filter: sepia(100%) hue-rotate(300deg) saturate(300%) brightness(70%);
+  }
+  100% {
+    box-shadow: 0 0 30px transparent;
+    outline: 10px transparent;
+    filter: grayscale();
+  }
 }
