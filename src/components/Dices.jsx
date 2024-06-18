@@ -1,4 +1,5 @@
 import { DICES } from "../assets/Game_core";
+import { WOLF, FOX } from "../assets/Game_core";
 import { GiRollingDiceCup } from "react-icons/gi";
 import "../style/dices.css";
 
@@ -55,7 +56,20 @@ function Dices({
         ) : (
           throwResult.map((dice) =>
             DICES.fields.map(
-              ({ id, icon: Icon }) => id == dice && <Icon key={id} />
+              ({ id, icon: Icon }) =>
+                id == dice && (
+                  <Icon
+                    key={id}
+                    style={
+                      id == WOLF || id == FOX
+                        ? {
+                            animation: "1s predator forwards, 0.15s ease roll",
+                            filter: "drop-shadow(0 0 3px red)",
+                          }
+                        : {}
+                    }
+                  />
+                )
             )
           )
         )}

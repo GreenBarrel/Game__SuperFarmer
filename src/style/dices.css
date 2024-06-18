@@ -51,3 +51,12 @@
     opacity: 1;
   }
 }
+
+@keyframes predator {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}

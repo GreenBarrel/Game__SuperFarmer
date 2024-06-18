@@ -55,6 +55,14 @@ h3 {
   margin: 0 3px;
 }
 
+.flock__items > .flock__item {
+  width: 75px;
+}
+
+.flock__items > .gatekeeper__item {
+  width: 50px;
+}
+
 .flock__items > .--active,
 .flock__extra_items {
   animation: 1.5s new-item;
@@ -67,7 +75,7 @@ h3 {
 .flock__item:not(.--active),
 .gatekeeper__item:not(.--active) {
   filter: grayscale();
-  animation: 1.5s lost-item;
+  transition: all 1s;
 }
 
 .gatekeepers {
@@ -127,23 +135,5 @@ h3 {
   100% {
     box-shadow: 0 0 30px transparent;
     outline: 5px transparent;
-  }
-}
-
-@keyframes lost-item {
-  0% {
-    box-shadow: 0 0 30px transparent;
-    outline: 10px transparent;
-    filter: none;
-  }
-  50% {
-    box-shadow: 0px 0px 3px 5px rgba(234, 26, 26, 0.807);
-    outline: 1px rgba(234, 26, 26, 0.807);
-    filter: sepia(100%) hue-rotate(300deg) saturate(300%) brightness(70%);
-  }
-  100% {
-    box-shadow: 0 0 30px transparent;
-    outline: 10px transparent;
-    filter: grayscale();
   }
 }

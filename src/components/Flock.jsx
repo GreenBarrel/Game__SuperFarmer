@@ -14,14 +14,12 @@ function Flock({ myFlock, setMyFlock, isActivePlayer, source, nextRound }) {
               <img
                 key={k}
                 src={img}
-                width={75}
                 className={"flock__item" + (stock > k ? " " + "--active" : "")}
               />
             ))
           ) : (
             <img
               src={img}
-              width={50}
               className={"gatekeeper__item" + (stock ? " " + "--active" : "")}
             />
           )}
