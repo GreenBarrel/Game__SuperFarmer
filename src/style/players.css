@@ -137,3 +137,21 @@ h3 {
     outline: 5px transparent;
   }
 }
+
+@media only screen and (max-width: 1100px) {
+  .--active {
+    grid-area: 1 / 1 / 4 / 3;
+  }
+
+  .players_container__player:not(.--active) {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .players_container {
+    grid-area: 1 / 1 / 2 / 3;
+    scale: 0.7;
+    margin: -50px;
+  }
+}
