@@ -5,7 +5,7 @@ import { wonTheGame, updateFlock } from "../assets/Player_events";
 import "../style/players.css";
 
 function Player({ throwResult, turn, playerId, setWinningPlayer, nextRound }) {
-  const [myFlock, setMyFlock] = useState(INIT_STATE);
+  const [myFlock, setMyFlock] = useState(() => INIT_STATE);
   const [isLoosing, setIsLoosing] = useState(false);
 
   const flock = myFlock.flock;
