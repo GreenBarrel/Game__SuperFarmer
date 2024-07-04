@@ -1,6 +1,6 @@
 .game_container {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr minmax(165px, 1fr);
   grid-template-rows: min-content 6fr 1fr;
   width: 100%;
   position: relative;
