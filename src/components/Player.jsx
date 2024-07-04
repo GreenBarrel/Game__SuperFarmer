@@ -18,15 +18,7 @@ function Player({ throwResult, turn, playerId, setWinningPlayer, nextRound }) {
 
   useEffect(() => {
     isActivePlayer() && updateFlock(myFlock, setMyFlock, throwResult);
-    (throwResult.includes("wolf") || throwResult.includes("fox")) &&
-      setIsLoosing(true);
   }, [throwResult]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoosing(false);
-    }, 3000);
-  }, [nextRound]);
 
   useEffect(() => {
     wonTheGame(myFlock) === true && setWinningPlayer(playerId);
