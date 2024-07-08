@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Player from "./Player";
 import "../style/players.css";
 
@@ -10,7 +10,7 @@ function PlayersContainer({
 }) {
   const [playerTurn, setPlayerTurn] = useState(0);
 
-  useEffect(() => {
+  useCallback(() => {
     if (!nextRound) {
       playerTurn < players
         ? setPlayerTurn((prev) => prev + 1)
