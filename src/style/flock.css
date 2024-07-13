@@ -1,0 +1,108 @@
+.flock__items {
+  position: relative;
+}
+
+.flock__items > img {
+  border-radius: 50%;
+  margin: 0 3px;
+}
+
+.flock__items > .--active {
+  animation: 1.5s new-item !important;
+}
+
+.flock__items > .flock__item {
+  width: 75px;
+}
+
+.flock__items > .gatekeeper__item {
+  width: 50px;
+}
+
+.flock__item:not(.--active):first-of-type {
+  filter: sepia(100%) hue-rotate(175deg) saturate(150%) brightness(85%);
+}
+
+.flock__item:not(.--active),
+.gatekeeper__item:not(.--active) {
+  filter: grayscale();
+  animation: 1.5s lose-item;
+}
+
+.gatekeepers {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.flock__extra_items {
+  z-index: 1;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(29, 117, 161);
+  color: white;
+  font-size: 0.65em;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  filter: none;
+}
+
+.flock__buy_item_btn {
+  position: absolute;
+  top: 0px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: rgba(36, 95, 127, 0.6);
+  border: none;
+  font-size: 3em;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 3px black;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.gatekeepers .flock__buy_item_btn {
+  font-size: 2em;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes new-item {
+  0% {
+    box-shadow: 0 0 30px transparent;
+    outline: 10px transparent;
+  }
+  50% {
+    box-shadow: 0px 0px 3px 5px rgba(210, 234, 26, 0.807);
+    outline: 1px rgba(210, 234, 26, 0.807);
+  }
+  100% {
+    box-shadow: 0 0 30px transparent;
+    outline: 5px transparent;
+  }
+}
+
+@keyframes lose-item {
+  0% {
+    box-shadow: 0 0 30px transparent;
+    outline: 10px transparent;
+    filter: none;
+  }
+  50% {
+    box-shadow: 0px 0px 3px 5px rgba(210, 21, 62, 0.807);
+    outline: 1px rgba(210, 21, 62, 0.807);
+    filter: sepia(100%) hue-rotate(290deg) saturate(190%);
+  }
+  100% {
+    box-shadow: 0 0 30px transparent;
+    outline: 5px transparent;
+    filter: grayscale();
+  }
+}
