@@ -90,4 +90,8 @@ input[type="number"]::-webkit-outer-spin-button {
   .game_container__rules {
     display: none;
   }
+
+  .start_container {
+    scale: 0.7;
+  }
 }

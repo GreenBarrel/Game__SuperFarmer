@@ -18,7 +18,7 @@
 }
 
 .dices_container > .dice_cup {
-  scale: 2.5;
+  scale: 2;
   color: rgba(255, 255, 255, 0.23);
   box-shadow: none;
   z-index: -1;
