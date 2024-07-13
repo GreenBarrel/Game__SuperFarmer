@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import Player from "./Player";
 import "../style/players.css";
 
@@ -10,7 +10,7 @@ function PlayersContainer({
 }) {
   const [playerTurn, setPlayerTurn] = useState(0);
 
-  useCallback(() => {
+  useEffect(() => {
     if (!nextRound) {
       playerTurn < players
         ? setPlayerTurn((prev) => prev + 1)
@@ -26,7 +26,7 @@ function PlayersContainer({
             key={k}
             throwResult={throwResult}
             playerId={k + 1}
-            turn={playerTurn}
+            playerTurn={playerTurn}
             setWinningPlayer={setWinningPlayer}
             nextRound={nextRound}
           />

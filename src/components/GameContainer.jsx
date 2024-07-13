@@ -6,9 +6,9 @@ import GameOver from "./GameOver";
 import "../style/game_container.css";
 
 function GameContainer({ players, setStart }) {
-  const [throwResult, setThrowResult] = useState([]);
-  const [winningPlayer, setWinningPlayer] = useState(null);
-  const [nextRound, setNextRound] = useState(false);
+  const [throwResult, setThrowResult] = useState(() => []);
+  const [winningPlayer, setWinningPlayer] = useState(() => null);
+  const [nextRound, setNextRound] = useState(() => false);
 
   return (
     <div className="game_container">
